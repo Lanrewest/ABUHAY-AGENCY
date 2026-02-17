@@ -1,0 +1,8 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+body {
+    font-family: 'Inter', sans-serif;
+    background: #FFF8E1;
+    min-height: 100vh;
+}
