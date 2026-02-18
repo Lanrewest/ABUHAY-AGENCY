@@ -1,3 +1,4 @@
+import { Routes, Route, Link } from 'react-router-dom';
 import { dummyUsers, dummyProperties, dummyLeads } from '../dummyData';
 
 function Users() {
@@ -34,7 +35,7 @@ function Properties() {
             <div className="text-gray-600 text-sm">{p.location?.city}, {p.location?.state}</div>
             <div className="text-dark font-bold">₦{p.price?.toLocaleString()}</div>
             <div className="text-xs text-gray-500">{p.type?.toUpperCase()} | {p.category}</div>
-            <a href={`/property/${p._id}`} className="text-accent hover:underline text-sm">View</a>
+            <Link to={`/property/${p._id}`} className="text-accent hover:underline text-sm">View</Link>
           </div>
         ))}
       </div>

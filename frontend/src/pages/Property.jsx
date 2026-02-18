@@ -5,8 +5,12 @@ import { dummyProperties } from '../dummyData';
 export default function Property() {
   const { id } = useParams();
   // Use dummy data for preview
-  const property = dummyProperties.find(p => p._id === id) || dummyProperties[0];
+  const property = dummyProperties.find(p => p._id === id);
 
+  if (!property) {
+    return <div className="container mx-auto text-center py-20 text-2xl font-bold text-primary">Property not found.</div>;
+  }
+  
   return (
     <div className="container mx-auto px-4 py-8 grid md:grid-cols-2 gap-8">
       {/* Property Images & Info */}

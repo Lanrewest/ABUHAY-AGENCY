@@ -5,7 +5,10 @@ const fs = require('fs');
 
 exports.createProperty = async(req, res) => {
     try {
-        const data = req.body;
+        // Destructure to separate location fields from the rest of the body
+        const { state, city, area, ...rest } = req.body;
+        const data = {...rest, location: { state, city, area } };
+
         data.sellerId = req.user._id;
         let images = [];
         if (req.files && req.files.length > 0) {

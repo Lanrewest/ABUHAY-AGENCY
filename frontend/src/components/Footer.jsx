@@ -1,4 +1,5 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
 
 function Footer() {
   return (
@@ -12,7 +13,7 @@ function Footer() {
         <div className="flex gap-6">
           <a href="https://facebook.com" target="_blank" rel="noopener noreferrer" className="hover:text-yellow-400 transition">Facebook</a>
           <a href="https://instagram.com" target="_blank" rel="noopener noreferrer" className="hover:text-yellow-400 transition">Instagram</a>
-          <a href="/contact" className="hover:text-yellow-400 transition">Contact</a>
+          <Link to="/contact" className="hover:text-yellow-400 transition">Contact</Link>
         </div>
       </div>
     </footer>
