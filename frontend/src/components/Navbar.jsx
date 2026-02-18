@@ -1,12 +1,13 @@
+
 import React from 'react';
 import { Link } from 'react-router-dom';
 
-export default function Navbar() {
+function Navbar() {
   return (
-    <nav className="bg-primary text-white shadow-lg sticky top-0 z-50">
+    <nav className="bg-blue-700 text-white shadow-lg sticky top-0 z-50">
       <div className="container mx-auto flex items-center justify-between px-4 py-3">
         <Link to="/" className="text-2xl font-extrabold tracking-tight flex items-center gap-3">
-          <span className="bg-gold rounded-full w-10 h-10 flex items-center justify-center text-primary font-black text-2xl shadow">A</span>
+          <span className="bg-yellow-400 rounded-full w-10 h-10 flex items-center justify-center text-blue-700 font-black text-2xl shadow">A</span>
           <span className="ml-1 tracking-widest">ABUHAY Agency</span>
         </Link>
         <div className="hidden md:flex gap-8 text-lg font-medium">
@@ -22,3 +23,5 @@ export default function Navbar() {
     </nav>
   );
 }
+
+export default Navbar;
