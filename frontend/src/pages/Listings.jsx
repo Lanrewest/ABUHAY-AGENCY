@@ -10,6 +10,11 @@ export default function Listings() {
       <div className="grid md:grid-cols-3 gap-10">
         {properties.map(p => (
           <div key={p._id} className="bg-white rounded-2xl shadow-lg hover:shadow-2xl hover:scale-[1.03] transition-all overflow-hidden border-2 border-gold/20 group">
+            {p.status === 'sold' && (
+              <div className="absolute inset-0 bg-gray-900/60 z-20 flex items-center justify-center backdrop-blur-[2px]">
+                <span className="text-red-500 font-black text-5xl border-8 border-red-500 px-6 py-2 -rotate-12 bg-white/10 tracking-widest">SOLD</span>
+              </div>
+            )}
             {p.images && p.images[0] && (
               <img src={p.images[0]} alt={p.title} className="w-full h-40 object-cover object-center group-hover:opacity-90 transition" style={{maxHeight:'180px'}} />
             )}

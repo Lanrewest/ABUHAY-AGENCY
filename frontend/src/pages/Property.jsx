@@ -12,7 +12,12 @@ export default function Property() {
   }
   
   return (
-    <div className="container mx-auto px-4 py-8 grid md:grid-cols-2 gap-8">
+    <div className="container mx-auto px-4 py-8 grid md:grid-cols-2 gap-8 relative">
+      {property.status === 'sold' && (
+        <div className="absolute inset-0 z-50 flex items-center justify-center pointer-events-none">
+          <span className="text-red-600 font-black text-6xl md:text-8xl border-8 border-red-600 px-10 py-4 -rotate-12 bg-white/80 opacity-90">SOLD</span>
+        </div>
+      )}
       {/* Property Images & Info */}
       <div>
         {property.images && property.images.length > 0 ? (

@@ -15,6 +15,7 @@ export const dummyProperties = [{
         sellerId: 'u1',
         isVerified: true,
         isFeatured: true,
+        status: 'available',
         views: 45,
         createdAt: new Date().toISOString()
     },
@@ -33,6 +34,7 @@ export const dummyProperties = [{
         sellerId: 'u2',
         isVerified: false,
         isFeatured: false,
+        status: 'available',
         views: 12,
         createdAt: new Date().toISOString()
     },
@@ -51,6 +53,7 @@ export const dummyProperties = [{
         sellerId: 'u3',
         isVerified: true,
         isFeatured: false,
+        status: 'available',
         views: 7,
         createdAt: new Date().toISOString()
     }

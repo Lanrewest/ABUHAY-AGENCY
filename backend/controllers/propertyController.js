@@ -26,6 +26,10 @@ exports.createProperty = async(req, res) => {
 
 exports.getProperties = async(req, res) => {
     try {
+        // Auto-delete properties sold more than 24 hours ago
+        const oneDayAgo = new Date(Date.now() - 24 * 60 * 60 * 1000);
+        await Property.deleteMany({ status: 'sold', soldAt: { $lt: oneDayAgo } });
+
         const q = req.query || {};
         const props = await Property.find(q).sort({ createdAt: -1 }).limit(50);
         res.json(props);
@@ -47,6 +51,10 @@ exports.updateProperty = async(req, res) => {
         const prop = await Property.findById(req.params.id);
         if (!prop) return res.status(404).json({ message: 'Not found' });
         if (prop.sellerId.toString() !== req.user._id.toString() && req.user.role !== 'admin') return res.status(403).json({ message: 'Forbidden' });
+
+        if (req.body.status === 'sold') {
+            req.body.soldAt = new Date();
+        }
         Object.assign(prop, req.body);
         await prop.save();
         res.json(prop);

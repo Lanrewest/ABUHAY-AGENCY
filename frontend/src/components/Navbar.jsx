@@ -14,7 +14,7 @@ function Navbar() {
           <Link to="/listings" className="hover:text-gold transition">Listings</Link>
           <Link to="/about" className="hover:text-gold transition">About</Link>
           <Link to="/contact" className="hover:text-gold transition">Contact</Link>
-          <Link to="/admin" className="hover:text-gold transition">Admin</Link>
+            
         </div>
         <div className="flex gap-3">
           <Link to="/login" className="bg-gold text-primary px-5 py-2 rounded-full font-semibold hover:bg-gold/80 shadow transition">Login</Link>
