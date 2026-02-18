@@ -1,4 +1,7 @@
 
+import React from 'react';
+import { dummyProperties } from '../dummyData';
+
 export default function Listings() {
   const properties = dummyProperties;
   return (
@@ -8,7 +11,7 @@ export default function Listings() {
         {properties.map(p => (
           <div key={p._id} className="bg-white rounded-2xl shadow-lg hover:shadow-2xl hover:scale-[1.03] transition-all overflow-hidden border-2 border-gold/20 group">
             {p.images && p.images[0] && (
-              <img src={p.images[0]} alt={p.title} className="w-full h-52 object-cover group-hover:opacity-90 transition" />
+              <img src={p.images[0]} alt={p.title} className="w-full h-40 object-cover object-center group-hover:opacity-90 transition" style={{maxHeight:'180px'}} />
             )}
             <div className="p-6">
               <h3 className="text-2xl font-bold mb-2 text-primary group-hover:text-gold transition">{p.title}</h3>
