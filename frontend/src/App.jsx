@@ -7,6 +7,7 @@ import Login from './pages/Login'
 import Register from './pages/Register'
 import Dashboard from './pages/Dashboard'
 import Admin from './pages/Admin'
+import SuperAdmin from './pages/SuperAdmin'
 import Navbar from './components/Navbar'
 import Footer from './components/Footer'
 import About from './pages/About'
@@ -27,6 +28,7 @@ export default function App(){
           <Route path="/contact" element={<Contact/>} />
           <Route path="/dashboard/*" element={<Dashboard/>} />
           <Route path="/admin/*" element={<Admin/>} />
+          <Route path="/superadmin/*" element={<SuperAdmin/>} />
         </Routes>
       </div>
       <Footer />
