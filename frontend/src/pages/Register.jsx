@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { Link } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 import { register as registerApi } from '../api';
 
 export default function Register() {
@@ -8,6 +8,7 @@ export default function Register() {
   const [error, setError] = useState('');
   const [success, setSuccess] = useState('');
   const [showPassword, setShowPassword] = useState(false);
+  const navigate = useNavigate();
 
   const handleChange = e => setForm({ ...form, [e.target.name]: e.target.value });
 
@@ -17,6 +18,7 @@ export default function Register() {
     try {
       const res = await registerApi(form);
       setSuccess('Registration successful! Check your email for verification.');
+      navigate('/dashboard');
     } catch (err) {
       setError(err.response?.data?.message || 'Registration failed');
     } finally {

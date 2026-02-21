@@ -7,7 +7,7 @@ export default function Contact() {
        <div className="relative h-[300px] flex items-center justify-center bg-gray-900 text-white">
         <div className="absolute inset-0">
           <img 
-            src="https://images.unsplash.com/photo-1423666639041-f142fcb93370?auto=format&fit=crop&w=1920&q=80" 
+            src="https://images.unsplash.com/photo-1497366216548-37526070297c?auto=format&fit=crop&w=1920&q=80" 
             alt="Contact Us" 
             className="w-full h-full object-cover opacity-40"
           />

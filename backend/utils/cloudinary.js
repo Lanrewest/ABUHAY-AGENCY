@@ -12,5 +12,5 @@ exports.upload = async(filePath) => {
     try {
         const res = await cloudinary.uploader.upload(filePath, { folder: 'properties' });
         return res.secure_url;
-    } catch (err) { throw err; }
+    } catch (err) { console.error("Cloudinary Upload Error:", err); throw err; }
 };

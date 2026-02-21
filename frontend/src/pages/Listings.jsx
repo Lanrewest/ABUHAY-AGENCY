@@ -1,9 +1,35 @@
-import React from 'react';
-import { Link } from 'react-router-dom';
+import React, { useState, useEffect } from 'react';
+import { Link, useSearchParams } from 'react-router-dom';
+import axios from 'axios';
 import { dummyProperties } from '../dummyData';
 
 export default function Listings() {
-  const properties = dummyProperties;
+  const [properties, setProperties] = useState([]);
+  const [loading, setLoading] = useState(true);
+  const [searchParams] = useSearchParams();
+
+  useEffect(() => {
+    const fetchProperties = async () => {
+      setLoading(true);
+      try {
+        const res = await axios.get(`/api/properties?${searchParams.toString()}`);
+        if (Array.isArray(res.data)) {
+          setProperties(res.data);
+        } else {
+          setProperties(dummyProperties);
+        }
+      } catch (err) {
+        console.error("Failed to fetch properties", err);
+        setProperties(dummyProperties);
+      } finally {
+        setLoading(false);
+      }
+    };
+    fetchProperties();
+  }, [searchParams]);
+
+  if (loading) return <div className="text-center py-20">Loading properties...</div>;
+
   return (
     <div className="container mx-auto px-4 py-12">
       <div className="flex flex-col md:flex-row justify-between items-end mb-8 border-b border-gray-200 pb-4">

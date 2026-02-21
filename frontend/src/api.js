@@ -11,5 +11,6 @@ export const login = (data) => API.post('/api/auth/login', data);
 export const getProperties = () => API.get('/api/properties');
 export const getProperty = (id) => API.get(`/api/properties/${id}`);
 export const createLead = (data) => API.post('/api/leads', data);
+export const createProperty = (data) => API.post('/api/properties', data);
 
 export default API;

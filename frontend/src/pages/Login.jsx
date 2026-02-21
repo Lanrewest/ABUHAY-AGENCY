@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { Link } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 import { login as loginApi } from '../api';
 
 export default function Login() {
@@ -8,6 +8,7 @@ export default function Login() {
   const [error, setError] = useState('');
   const [success, setSuccess] = useState('');
   const [showPassword, setShowPassword] = useState(false);
+  const navigate = useNavigate();
 
   const handleChange = e => setForm({ ...form, [e.target.name]: e.target.value });
 
@@ -18,6 +19,7 @@ export default function Login() {
       const res = await loginApi(form);
       setSuccess('Login successful!');
       // TODO: Save token, redirect, etc.
+      navigate('/dashboard');
     } catch (err) {
       setError(err.response?.data?.message || 'Login failed');
     } finally {

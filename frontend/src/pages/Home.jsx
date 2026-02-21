@@ -4,11 +4,17 @@ import { dummyProperties } from '../dummyData';
 
 function Home() {
   const [activeTab, setActiveTab] = useState('sale');
+  const [searchParams, setSearchParams] = useState({
+    location: '',
+    minPrice: '',
+    maxPrice: ''
+  });
   const navigate = useNavigate();
 
   const handleSearch = (e) => {
     e.preventDefault();
-    navigate('/listings');
+    const query = new URLSearchParams({ ...searchParams, type: activeTab }).toString();
+    navigate(`/listings?${query}`);
   };
 
   // Get top 3 properties for featured section
@@ -61,17 +67,19 @@ function Home() {
              <form onSubmit={handleSearch} className="flex flex-col md:flex-row gap-4">
                 <input 
                     type="text" 
+                    value={searchParams.location}
+                    onChange={(e) => setSearchParams({...searchParams, location: e.target.value})}
                     placeholder="Search by location, type..." 
                     className="flex-grow px-6 py-4 rounded-xl bg-white text-gray-900 focus:outline-none focus:ring-2 focus:ring-yellow-500 placeholder-gray-500"
                 />
                 <div className="flex gap-2 md:w-1/3">
-                    <select className="w-1/2 px-4 py-4 rounded-xl bg-white text-gray-700 focus:outline-none focus:ring-2 focus:ring-yellow-500 appearance-none cursor-pointer">
+                    <select value={searchParams.minPrice} onChange={(e) => setSearchParams({...searchParams, minPrice: e.target.value})} className="w-1/2 px-4 py-4 rounded-xl bg-white text-gray-700 focus:outline-none focus:ring-2 focus:ring-yellow-500 appearance-none cursor-pointer">
                         <option>Min Price</option>
                         <option>₦10M</option>
                         <option>₦50M</option>
                         <option>₦100M</option>
                     </select>
-                    <select className="w-1/2 px-4 py-4 rounded-xl bg-white text-gray-700 focus:outline-none focus:ring-2 focus:ring-yellow-500 appearance-none cursor-pointer">
+                    <select value={searchParams.maxPrice} onChange={(e) => setSearchParams({...searchParams, maxPrice: e.target.value})} className="w-1/2 px-4 py-4 rounded-xl bg-white text-gray-700 focus:outline-none focus:ring-2 focus:ring-yellow-500 appearance-none cursor-pointer">
                         <option>Max Price</option>
                         <option>₦100M</option>
                         <option>₦500M</option>

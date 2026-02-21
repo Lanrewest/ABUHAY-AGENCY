@@ -20,7 +20,7 @@ const propertySchema = new mongoose.Schema({
         area: String
     },
     images: [String],
-    sellerId: { type: mongoose.Schema.Types.ObjectId, ref: 'User' },
+    user: { type: mongoose.Schema.Types.ObjectId, ref: 'User', required: true },
     isVerified: { type: Boolean, default: false },
     isFeatured: { type: Boolean, default: false },
     views: { type: Number, default: 0 },
