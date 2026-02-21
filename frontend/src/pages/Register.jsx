@@ -16,9 +16,11 @@ export default function Register() {
     e.preventDefault();
     setLoading(true); setError(''); setSuccess('');
     try {
-      const res = await registerApi(form);
-      setSuccess('Registration successful! Check your email for verification.');
-      navigate('/dashboard');
+      await registerApi(form);
+      setSuccess('Registration successful! Redirecting to login...');
+      setTimeout(() => {
+        navigate('/login');
+      }, 2000);
     } catch (err) {
       setError(err.response?.data?.message || 'Registration failed');
     } finally {
