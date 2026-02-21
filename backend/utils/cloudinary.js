@@ -10,7 +10,7 @@ cloudinary.config({
 
 exports.upload = async(filePath) => {
     try {
-        const res = await cloudinary.uploader.upload(filePath, { folder: 'properties' });
+        const res = await cloudinary.uploader.upload(filePath, { folder: 'properties', upload_preset: 'ABUHAY' });
         return res.secure_url;
     } catch (err) { console.error("Cloudinary Upload Error:", err); throw err; }
 };
