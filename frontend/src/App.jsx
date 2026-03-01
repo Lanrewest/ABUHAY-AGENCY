@@ -12,6 +12,7 @@ import Navbar from './components/Navbar'
 import Footer from './components/Footer'
 import About from './pages/About'
 import Contact from './pages/Contact'
+import ForgotPassword from './pages/ForgotPassword'
 
 export default function App(){
   return (
@@ -25,6 +26,7 @@ export default function App(){
           <Route path="/login" element={<Login/>} />
           <Route path="/register" element={<Register/>} />
           <Route path="/about" element={<About/>} />
+          <Route path="/forgot-password" element={<ForgotPassword/>} />
           <Route path="/contact" element={<Contact/>} />
           <Route path="/dashboard/*" element={<Dashboard/>} />
           <Route path="/admin/*" element={<Admin/>} />

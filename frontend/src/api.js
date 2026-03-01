@@ -15,6 +15,7 @@ API.interceptors.request.use((req) => {
 
 export const register = (data) => API.post('/api/auth/register', data);
 export const login = (data) => API.post('/api/auth/login', data);
+export const forgotPassword = (data) => API.post('/api/auth/forgotpassword', data);
 
 export const getProperties = () => API.get('/api/properties');
 export const getProperty = (id) => API.get(`/api/properties/${id}`);
